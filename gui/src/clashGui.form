@@ -67,13 +67,12 @@
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
           </vspacer>
-          <component id="9ccd5" class="javax.swing.JComboBox" binding="programme">
+          <component id="9ccd5" class="javax.swing.JComboBox" binding="adProgramme">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <actionCommand value="selectProgramme"/>
               <model>
                 <item value="Undergraduate"/>
                 <item value="Postgraduate"/>

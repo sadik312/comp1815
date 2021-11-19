@@ -12,7 +12,7 @@ public class clashGui {
     private JPanel display;
     private JButton adButton;
     private JButton usButton;
-    private JComboBox programme;
+    private JComboBox adProgramme;
     private JComboBox comboBox2;
     private JComboBox comboBox3;
     private JComboBox comboBox4;
@@ -21,8 +21,8 @@ public class clashGui {
 
 
     public clashGui(){
-        super();
 
+        //home panel actionListeners
         adButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,6 +37,15 @@ public class clashGui {
                 cl.show(topLayer, "user");
             }
         });
+
+
+        //Admin panel actionListener
+        adProgramme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(getAdProg());
+            }
+        });
     }
 
     public void start(){
@@ -49,6 +58,22 @@ public class clashGui {
        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
        frame.setVisible(true);
    }
+
+
+   // Admin page
+    public String getAdProg(){
+        return adProgramme.getSelectedItem().toString();
+    }
+
+
+
+    //user page
+
+
+    //display page
+
+
+
 
 
 }
