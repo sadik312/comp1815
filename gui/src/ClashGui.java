@@ -6,18 +6,15 @@ import java.awt.event.ComponentAdapter;
 
 public class ClashGui {
     private JPanel topLayer;
-    private JPanel home;
     private JPanel admin;
-    private JPanel user;
     private JPanel display;
     private JButton adButton;
     private JButton usButton;
     private JComboBox adProgramme;
     private JComboBox adYear;
     private JComboBox adTerm;
-    private JTextField textField1;
+    private JTextField adModuleText;
     private JLabel adCompulsoryTitle;
-    private JLabel adModuleTitle;
     private JLabel adAcitivityTitle;
     private JComboBox adActivity;
     private JLabel adTimeTitle;
@@ -33,6 +30,7 @@ public class ClashGui {
     private JButton adAddButton;
     private JComboBox comboBox2;
     private JComboBox comboBox3;
+    private JLabel adModule;
 
     private CardLayout cl = (CardLayout)(topLayer.getLayout());
 
@@ -40,6 +38,7 @@ public class ClashGui {
     public ClashGui(){
 
         //home panel actionListeners
+        /*
         adButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,12 +53,13 @@ public class ClashGui {
                 cl.show(topLayer, "user");
             }
         });
-
+        */
 
         //Admin panel actionListener
         adProgramme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //calls funciton form controller detectClash()
                 System.out.println(getAdProg());
             }
         });
