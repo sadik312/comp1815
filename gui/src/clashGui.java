@@ -13,9 +13,26 @@ public class clashGui {
     private JButton adButton;
     private JButton usButton;
     private JComboBox adProgramme;
+    private JComboBox adYear;
+    private JComboBox adTerm;
+    private JTextField textField1;
+    private JLabel adCompulsoryTitle;
+    private JLabel adModuleTitle;
+    private JLabel adAcitivityTitle;
+    private JComboBox adActivity;
+    private JLabel adTimeTitle;
+    private JComboBox adTime;
+    private JLabel timeStart;
+    private JLabel endTime;
+    private JRadioButton yesRadioButton;
+    private JRadioButton noRadioButton;
+    private JLabel adDayTitle;
+    private JComboBox comboBox1;
+    private JLabel adCrashTitle;
+    private JComboBox adCrash;
+    private JButton adAddButton;
     private JComboBox comboBox2;
     private JComboBox comboBox3;
-    private JComboBox comboBox4;
 
     private CardLayout cl = (CardLayout)(topLayer.getLayout());
 
