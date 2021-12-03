@@ -5,7 +5,7 @@ public class MainGui {
 
     public static void main(String[] args){
 
-        clashGui mainGui = new clashGui();
+        ClashGui mainGui = new ClashGui();
         mainGui.start();
     }
 

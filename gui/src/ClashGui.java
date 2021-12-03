@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 
-public class clashGui {
+public class ClashGui {
     private JPanel topLayer;
     private JPanel home;
     private JPanel admin;
@@ -37,7 +37,7 @@ public class clashGui {
     private CardLayout cl = (CardLayout)(topLayer.getLayout());
 
 
-    public clashGui(){
+    public ClashGui(){
 
         //home panel actionListeners
         adButton.addActionListener(new ActionListener() {
