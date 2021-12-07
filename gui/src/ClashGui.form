@@ -189,7 +189,7 @@
               <text value="Day"/>
             </properties>
           </component>
-          <component id="c4101" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+          <component id="c4101" class="javax.swing.JComboBox" binding="adDay">
             <constraints>
               <grid row="17" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
@@ -238,7 +238,7 @@
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
           </vspacer>
-          <component id="13e8e" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+          <component id="13e8e" class="javax.swing.JComboBox" binding="adEndTime1">
             <constraints>
               <grid row="20" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
@@ -261,7 +261,7 @@
               </model>
             </properties>
           </component>
-          <component id="b6eec" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+          <component id="b6eec" class="javax.swing.JComboBox" binding="adEndTime2">
             <constraints>
               <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>

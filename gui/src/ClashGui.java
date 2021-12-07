@@ -1,7 +1,9 @@
+import javax.naming.ldap.Control;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
 import java.awt.event.ComponentAdapter;
 
 public class ClashGui {
@@ -24,15 +26,79 @@ public class ClashGui {
     private JRadioButton yesRadioButton;
     private JRadioButton noRadioButton;
     private JLabel adDayTitle;
-    private JComboBox comboBox1;
+    private JComboBox adDay;
     private JLabel adCrashTitle;
     private JComboBox adCrash;
-    private JButton adAddButton;
-    private JComboBox comboBox2;
-    private JComboBox comboBox3;
+    public JButton adAddButton;
+    private JComboBox adEndTime1;
+    private JComboBox adEndTime2;
     private JLabel adModule;
 
     private CardLayout cl = (CardLayout)(topLayer.getLayout());
+
+
+    public String getAdCrash(){
+        return (String) adCrash.getSelectedItem();
+    }
+
+    public String getAdProgramme(){
+        return (String) adProgramme.getSelectedItem();
+    }
+
+    public String getAdYear(){
+        return (String) adYear.getSelectedItem();
+    }
+
+    public String getAdTerm(){
+        return (String) adTerm.getSelectedItem();
+    }
+
+    public String getAdModuleText(){
+        return (String) adModuleText.getText();
+    }
+
+    public String getAdActivity(){
+        return (String) adActivity.getSelectedItem();
+    }
+
+    public String getAdDay(){
+        return (String) adDay.getSelectedItem();
+    }
+
+    public String getAdTime(){
+        return (String) adTime.getSelectedItem();
+    }
+
+    public String getAdEndTime(){
+        return (String) adEndTime1.getSelectedItem() + ":" + (String) adEndTime2.getSelectedItem();
+    }
+
+    public String getComRadioButton(){
+        //ButtonGroup bg = new ButtonGroup();
+
+        //bg.add(yesRadioButton);
+        //bg.add(noRadioButton);
+
+        String radioText = "";
+
+        if (yesRadioButton.isSelected()){
+            radioText = yesRadioButton.getText();
+        }
+        else if (noRadioButton.isSelected()){
+            radioText = noRadioButton.getText();
+        } else{
+            radioText = noRadioButton.getText();
+        }
+
+        return(radioText);
+
+    }
+
+    public void adAddButtonListener(ActionListener listenForButton){
+        adAddButton.addActionListener(listenForButton);
+    }
+
+
 
 
     public ClashGui(){
@@ -63,6 +129,17 @@ public class ClashGui {
                 System.out.println(getAdProg());
             }
         });
+
+        adAddButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+//                Controller controllerObj = new Controller();
+//                controllerObj.detectClash();
+            }
+        });
+
+
     }
 
     public void start(){
@@ -82,9 +159,6 @@ public class ClashGui {
         return adProgramme.getSelectedItem().toString();
     }
 
-
-
-    //user page
 
 
     //display page
