@@ -32,11 +32,7 @@ class Controller{
         }
 
 
-        fun getKotlinCrash(model: Model, view: ClashGui){
-           val crash = KotlinClash(model, view)
-            crash.test()
-            crash.clash()
-        }
+        fun getKotlinCrash(model: Model, view: ClashGui){ KotlinClash(model, view) }
 
         fun getScalaCrash(model1: Model, view1: ClashGui){
 

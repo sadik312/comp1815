@@ -9,9 +9,6 @@ class KotlinClash(model1: Model, view2: ClashGui){
     val input = HashMap<String, String>()
     var clashModule = listOf<String>()
 
-
-
-
    init{
        input["program"] = view.adProgramme
        input["year"] = view.adYear
@@ -22,11 +19,17 @@ class KotlinClash(model1: Model, view2: ClashGui){
        input["day"] = view.adDay
        input["stime"] = view.adTime
        input["etime"] = view.adEndTime
+
+       if(!clash()){
+           println("added")
+           view.showAddedLabel()
+       }else{
+           view.showClashedLabel()
+       }
    }
 
-    fun test(){
-        println(input)
-    }
+
+
 
     fun add(){
         val activity = HashMap<String, List<String>>()
@@ -37,7 +40,7 @@ class KotlinClash(model1: Model, view2: ClashGui){
             input["module"].toString(), activity)
     }
 
-    fun clash(){
+    fun clash(): Boolean{
 
         if(input["opt"] == "opt"){
             println("is optional")
@@ -50,16 +53,18 @@ class KotlinClash(model1: Model, view2: ClashGui){
                 for((k,v) in model.getActivity(i)){
                    if( checkStart((v as List<String>), input["day"].toString(), input["stime"]!!.toInt(),  input["etime"]!!.toInt())){
                        //CLASH DETECTED
-                      println("clash")
-                       return
+                      //println("clash")
+                       println("Clashed: $i:$k")
+                       return true
                    }else{
                        //NO CLASH DETECTED
-                       return
                    }
                 }
             }
         }
+        return false
     }
+
 
     fun checkDay(activityDay: String, day: String): Boolean{
         var ret = false

@@ -33,6 +33,7 @@ public class ClashGui {
     private JComboBox adEndTime1;
     private JComboBox adEndTime2;
     private JLabel adModule;
+    private JLabel adAddLabel;
 
     private CardLayout cl = (CardLayout)(topLayer.getLayout());
 
@@ -100,15 +101,25 @@ public class ClashGui {
 
     }
 
-    public void adAddButtonListener(ActionListener listenForButton){
-        adAddButton.addActionListener(listenForButton);
+    public void adAddButtonListener(ActionListener listenForButton){adAddButton.addActionListener(listenForButton);}
+
+
+    public void showAddedLabel(){
+       adAddLabel.setText("Module added");
+       adAddLabel.setVisible(true);
     }
 
+    public void showClashedLabel(){
+        adAddLabel.setText("Clash Detected");
+        adAddLabel.setVisible(true);
+    }
 
 
 
     public ClashGui(){
 
+
+        adAddLabel.setVisible(false);
         //home panel actionListeners
         /*
         adButton.addActionListener(new ActionListener() {
@@ -143,7 +154,6 @@ public class ClashGui {
 
 
 
-
-
 }
+
 
