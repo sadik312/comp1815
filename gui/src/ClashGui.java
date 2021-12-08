@@ -66,11 +66,12 @@ public class ClashGui {
     }
 
     public String getAdTime(){
-        return (String) adTime.getSelectedItem();
+        String[] temp = adTime.getSelectedItem().toString().split(":");
+        return temp[0] + temp[1];
     }
 
     public String getAdEndTime(){
-        return (String) adEndTime1.getSelectedItem() + ":" + (String) adEndTime2.getSelectedItem();
+        return (String) adEndTime1.getSelectedItem() + (String) adEndTime2.getSelectedItem();
     }
 
     public String getComRadioButton(){
@@ -82,13 +83,18 @@ public class ClashGui {
         String radioText = "";
 
         if (yesRadioButton.isSelected()){
-            radioText = yesRadioButton.getText();
+            //radioText = yesRadioButton.getText();
+            radioText = "man";
         }
         else if (noRadioButton.isSelected()){
-            radioText = noRadioButton.getText();
+            //radioText = noRadioButton.getText();
+            radioText = "opt";
         } else{
-            radioText = noRadioButton.getText();
+            //radioText = noRadioButton.getText();
+            radioText = "opt";
         }
+
+
 
         return(radioText);
 
@@ -121,25 +127,6 @@ public class ClashGui {
         });
         */
 
-        //Admin panel actionListener
-        adProgramme.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //calls funciton form controller detectClash()
-                System.out.println(getAdProg());
-            }
-        });
-
-        adAddButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-//                Controller controllerObj = new Controller();
-//                controllerObj.detectClash();
-            }
-        });
-
-
     }
 
     public void start(){
@@ -153,15 +140,6 @@ public class ClashGui {
        frame.setVisible(true);
    }
 
-
-   // Admin page
-    public String getAdProg(){
-        return adProgramme.getSelectedItem().toString();
-    }
-
-
-
-    //display page
 
 
 

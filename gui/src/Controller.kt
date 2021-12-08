@@ -1,49 +1,59 @@
 import java.awt.event.ActionEvent
 import java.awt.event.ActionListener
 
-//class Controller(val model: Model, val view: ClashGui){
-//
-//    fun detectClash(){
-//        println("EH EH")
-//    }
-//
-//}
 
-class Controller(){
+class Controller{
 
-    constructor(var model: Model, var view: ClashGui){
-        this.model = Model()
-        this.view = ClashGui()
-        this.view.adAddButtonListener(PrintButton())
-    }
-
+    private val model = Model()
+    private val view = ClashGui()
 
     init{
-        this.model = Model()
-        this.view = ClashGui()
-        this.view.adAddButtonListener(PrintButton())
+        view.start()
+        view.adAddButtonListener(PrintButton(model, view))
     }
 
-    class PrintButton : ActionListener{
+    class PrintButton(model1: Model, view1: ClashGui): ActionListener{
+        val model = model1
+        val view = view1
+
+
+
         override fun actionPerformed(e: ActionEvent?) {
-            println("EH EH THIS IS WHERE YOU ADD ISH")
+            if(view.adCrash == "Kotlin"){
+
+                getKotlinCrash(model, view)
+
+            }else if(view.adCrash == "Scala"){
+                getScalaCrash(model, view)
+
+            }else{
+                println("Should not be here, Error has occurred")
+            }
         }
 
-        fun kotlinClash(){
+
+        fun getKotlinCrash(model: Model, view: ClashGui){
+           val crash = KotlinClash(model, view)
+            crash.test()
+            crash.clash()
+        }
+
+        fun getScalaCrash(model1: Model, view1: ClashGui){
 
         }
+
+
+
+
 
     }
 
 
-    fun detectClash(){
-        println("EH EH")
-    }
+
 }
 
 fun main(){
-    var eheh : Controller.PrintButton = Controller.PrintButton()
-    eheh.actionPerformed()
+    val controller = Controller()
 
 
 
