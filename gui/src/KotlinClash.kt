@@ -23,6 +23,7 @@ class KotlinClash(model1: Model, view2: ClashGui){
        if(!clash()){
            println("added")
            view.showAddedLabel()
+           add()
        }else{
            view.showClashedLabel()
        }
@@ -31,7 +32,7 @@ class KotlinClash(model1: Model, view2: ClashGui){
 
 
 
-    fun add(){
+    private fun add(){
         val activity = HashMap<String, List<String>>()
 
         activity.put(input["activity"] as String, listOf(input["day"] as String, input["stime"] as String, input["etime"] as String))
@@ -40,11 +41,12 @@ class KotlinClash(model1: Model, view2: ClashGui){
             input["module"].toString(), activity)
     }
 
-    fun clash(): Boolean{
+    private fun clash(): Boolean{
+        //TRUE == CLASH
+        //FALSE == NO CLASH
 
         if(input["opt"] == "opt"){
-            println("is optional")
-            //add()
+            println("Optional Module selected")
         }else{
             val program = model.stringProg(input["program"].toString(), input["year"].toString(), input["term"].toString())
             clashModule = model.getOpt("man").filter { s -> model.getProg(program).contains(s)  }
@@ -53,7 +55,6 @@ class KotlinClash(model1: Model, view2: ClashGui){
                 for((k,v) in model.getActivity(i)){
                    if( checkStart((v as List<String>), input["day"].toString(), input["stime"]!!.toInt(),  input["etime"]!!.toInt())){
                        //CLASH DETECTED
-                      //println("clash")
                        println("Clashed: $i:$k")
                        return true
                    }else{
@@ -66,7 +67,7 @@ class KotlinClash(model1: Model, view2: ClashGui){
     }
 
 
-    fun checkDay(activityDay: String, day: String): Boolean{
+    private fun checkDay(activityDay: String, day: String): Boolean{
         var ret = false
         if(activityDay == day){
            ret = true
@@ -75,7 +76,7 @@ class KotlinClash(model1: Model, view2: ClashGui){
     }
 
 
-    fun checkStart(activityDay: List<String>, day:String, stime: Int, etime:Int): Boolean{
+    private fun checkStart(activityDay: List<String>, day:String, stime: Int, etime:Int): Boolean{
         //return TRUE if CLASH
         // FALSE = NO CLASH
         val day2 = activityDay[0]
