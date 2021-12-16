@@ -1,10 +1,8 @@
-import javax.naming.ldap.Control;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ButtonGroup;
-import java.awt.event.ComponentAdapter;
+import java.awt.event.WindowListener;
 
 public class ClashGui {
     private JPanel topLayer;
@@ -34,6 +32,7 @@ public class ClashGui {
     private JComboBox adEndTime2;
     private JLabel adModule;
     private JLabel adAddLabel;
+    public JButton closeButton;
 
     private CardLayout cl = (CardLayout)(topLayer.getLayout());
 
@@ -101,17 +100,23 @@ public class ClashGui {
 
     }
 
-    public void adAddButtonListener(ActionListener listenForButton){adAddButton.addActionListener(listenForButton);}
+    public void adAddButtonListener(ActionListener listenForButton){
+        adAddButton.addActionListener(listenForButton);
+        adAddButton.setForeground(Color.GREEN);
+    }
 
 
     public void showAddedLabel(){
-       adAddLabel.setText("Module added");
-       adAddLabel.setVisible(true);
+        adAddLabel.setText("Module added");
+        adAddLabel.setVisible(true);
+        adAddLabel.setForeground(Color.GREEN);
     }
 
     public void showClashedLabel(){
         adAddLabel.setText("Clash Detected");
         adAddLabel.setVisible(true);
+        adAddLabel.setForeground(Color.red);
+
     }
 
 
@@ -138,20 +143,24 @@ public class ClashGui {
         });
         */
 
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
     public void start(){
 
-       JFrame frame = new JFrame("Clash detection");
+        JFrame frame = new JFrame("Clash detection");
 
 
-       frame.setSize(720, 576);
-       frame.setContentPane(this.topLayer);
-       frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-       frame.setVisible(true);
-   }
-
-
+        frame.setSize(720, 576);
+        frame.setContentPane(this.topLayer);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
 
 
 }
