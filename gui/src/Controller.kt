@@ -53,7 +53,7 @@ class Controller{
 }
 
 fun main(){
-    val controller = Controller()
+    Controller()
 
 }
 

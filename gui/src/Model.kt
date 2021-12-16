@@ -17,18 +17,22 @@ class Model {
      * @param op Module's optional/compulsory to be added to
      * @param activity Hashmap containing activity type (Lecture, Lab..) as key and activity attributes as value
      *
+     * Added in the following order:
+     *  programme
+     *  optional/compulsory
+     *  activities
      */
     fun add(prog: String, year: String, term: String, op: String, module: String, activity: Map<String, List<String>>){
 
         val p = stringProg(prog, year, term)
 
+        //Adding programme
         if(!db.outProgram().containsKey(p)){
-            //(db.outProgram()[p] as JSONArray).add(module)
             (db.outProgram()[p] as JSONArray).add(module)
         }else{
             (db.outProgram()[p] as JSONArray).add(module)
         }
-
+        //Adding optional/compulsory
         if(op == "opt"){
             if(!db.outOpt().contains(module)) {
                 db.outOpt().add(module)
@@ -39,11 +43,11 @@ class Model {
             }
         }
 
+        //Adding activities
         val activities = JSONObject()
         for((k,v ) in activity){
             activities[k] = v
         }
-
         db.inModule(module, activities)
     }
 
