@@ -7,7 +7,6 @@ import java.awt.event.WindowListener;
 public class ClashGui {
     private JPanel topLayer;
     private JPanel admin;
-    private JPanel display;
     private JButton adButton;
     private JButton usButton;
     private JComboBox adProgramme;
@@ -74,11 +73,11 @@ public class ClashGui {
         return (String) adEndTime1.getSelectedItem() + (String) adEndTime2.getSelectedItem();
     }
 
-    public String getComRadioButton(){
-        //ButtonGroup bg = new ButtonGroup();
 
-        //bg.add(yesRadioButton);
-        //bg.add(noRadioButton);
+
+
+
+    public String getComRadioButton(){
 
         String radioText = "";
 
@@ -123,26 +122,7 @@ public class ClashGui {
 
     public ClashGui(){
 
-
         adAddLabel.setVisible(false);
-        //home panel actionListeners
-        /*
-        adButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cl.show(topLayer, "admin");
-            }
-        });
-
-
-        usButton.addActionListener(new ActionListener() {
-           @Override
-            public void actionPerformed(ActionEvent e) {
-                cl.show(topLayer, "user");
-            }
-        });
-        */
-
         closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -154,12 +134,14 @@ public class ClashGui {
     public void start(){
 
         JFrame frame = new JFrame("Clash detection");
-
-
         frame.setSize(720, 576);
         frame.setContentPane(this.topLayer);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
+
+    public static void scalaClash(Model model, ClashGui view){
+        ScalaClash.detect(model, view);
     }
 
 

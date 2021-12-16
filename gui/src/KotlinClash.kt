@@ -53,7 +53,7 @@ class KotlinClash(model1: Model, view2: ClashGui){
 
             for(i in clashModule){
                 for((k,v) in model.getActivity(i)){
-                   if( checkStart((v as List<String>), input["day"].toString(), input["stime"]!!.toInt(),  input["etime"]!!.toInt())){
+                   if( checkStart(v, input["day"].toString(), input["stime"]!!.toInt(),  input["etime"]!!.toInt())){
                        //CLASH DETECTED
                        println("Clashed: $i:$k")
                        return true
@@ -76,12 +76,12 @@ class KotlinClash(model1: Model, view2: ClashGui){
     }
 
 
-    private fun checkStart(activityDay: List<String>, day:String, stime: Int, etime:Int): Boolean{
+    private fun checkStart(activityField: List<String>, day:String, stime: Int, etime:Int): Boolean{
         //return TRUE if CLASH
         // FALSE = NO CLASH
-        val day2 = activityDay[0]
-        val stime2 = activityDay[1].toInt()
-        val etime2 = activityDay[2].toInt()
+        val day2 = activityField[0]
+        val stime2 = activityField[1].toInt()
+        val etime2 = activityField[2].toInt()
         var ret = true
         if(checkDay(day, day2)) {
             if((stime < stime2 && (etime < stime2))){

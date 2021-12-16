@@ -1,54 +1,23 @@
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
+import scala.collection.mutable.HashMap
 import java.io.FileReader
 import java.io.FileWriter
 
 
 
 fun main(args: Array<String>) {
-
+    //ONLY RUNN TO CLEAR THE FILEEE
+    //WARNING
+    //To clear the JSON file
+    Db("db.json").clear()
 }
 
 
-fun test(){
-    val obj : JSONObject = JSONObject()
-
-    val program = JSONObject()
-    val post_1_1 = JSONArray()
-    val post_1_2 = JSONArray()
-    val under_1_1 = JSONArray()
-    val under_1_2 = JSONArray()
-    val under_2_1 = JSONArray()
-    val under_2_2 = JSONArray()
-    val under_3_1 = JSONArray()
-    val under_3_2 = JSONArray()
 
 
-    obj["program"] = program
-    program["post_y1_t1"] = post_1_1
-    program["post_y1_t2"] = post_1_2
-    program["under_y1_t1"] = under_1_1
-    program["under_y1_t2"] = under_1_2
-    program["under_y2_t1"] = under_2_1
-    program["under_y2_t2"] = under_2_2
-    program["under_y3_t1"] = under_3_1
-    program["under_y3_t2"] = under_3_2
-
-    val module : JSONObject = JSONObject()
-    val activity : JSONObject = JSONObject()
-    val lecture : JSONArray = JSONArray()
-
-    obj["module"] = module
-    val man = JSONArray()
-    val opt = JSONArray()
-
-    obj["man"] = man
-    obj["opt"] = opt
-    println(obj)
-
-}
-
+@Suppress("UNCHECKED_CAST")
 class Db(filePath: String){
 
     private val file : String = filePath
@@ -93,9 +62,13 @@ class Db(filePath: String){
         return outModule()[module] as JSONObject
     }
 
+
+
     fun outdt(module:String, activity:String): JSONArray{
         return outActivity(module)[activity] as JSONArray
     }
+
+
 
 
     fun inProgram(progName: String, module: JSONObject){

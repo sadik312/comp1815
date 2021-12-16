@@ -1,12 +1,13 @@
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
-
-@Suppress("UNCHECKED_CAST")
+@Suppress("UNCHECKED_CAST", "CAST_NEVER_SUCCEEDS")
 class Model {
 
     private val db = Db("db.json")
 
-    fun add(prog: String, year: String, term: String, op: String, module: String, activity: HashMap<String, List<String>>){
+
+
+    fun add(prog: String, year: String, term: String, op: String, module: String, activity: Map<String, List<String>>){
 
         val p = stringProg(prog, year, term)
 
@@ -26,11 +27,13 @@ class Model {
 
         val activities = JSONObject()
         for((k,v ) in activity){
+
             activities[k] = v
         }
 
         db.inModule(module, activities)
     }
+
 
     fun stringProg(prog: String, year: String, term: String): String {
         val r : (String, String, String) -> String = {
@@ -79,10 +82,12 @@ class Model {
         db.delProgOpt(module)
     }
 
-    fun getActivity(module: String ): HashMap<*, *> {
-        val ret = db.outActivity(module) as HashMap<*, *>
-        return ret
+    fun getActivity(module: String): HashMap<String, List<String>> {
+        return db.outActivity(module) as HashMap<String, List<String>>
     }
+
+
+
 
     fun getProg(type: String): List<String>{
         return db.outProgram()[type] as List<String>
@@ -98,14 +103,7 @@ class Model {
         return ret
     }
 
-    fun test(man: List<String>, prog: List<String>): List<String> {
-        //work for getting a union of the lists
-       return man.filter { s ->  prog.contains(s)}
-    }
-
-
-
-
-
 }
+
+
 
