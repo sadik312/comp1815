@@ -31,9 +31,18 @@ class Controller{
             }
         }
 
-
+        /**
+         * Model and ClashGUi instance passed from Controller class
+         * calls kotlinClash to check for Clashes
+         */
         fun getKotlinCrash(model: Model, view: ClashGui){ KotlinClash(model, view) }
 
+
+        /**
+         * Model and ClashGUi instance passed from Controller class
+         * calls scalaClash from ClashGui as the ScalaClash was only able to be called from a java
+         * file to check for Clashes
+         */
         fun getScalaCrash(model: Model, view: ClashGui) {
                 ClashGui.scalaClash(model, view)
         }
