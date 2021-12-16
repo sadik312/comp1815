@@ -5,9 +5,12 @@ import java.io.FileReader
 import java.io.FileWriter
 
 
-
+/**
+ * Used only for clearing the database
+ * NOT TO BE USED AS APPLICATION FEATURE
+ */
 fun main(args: Array<String>) {
-    //ONLY RUNN TO CLEAR THE FILEEE
+    //ONLY RUN TO CLEAR THE FILE
     //WARNING
     //To clear the JSON file
     Db("db.json").clear()
@@ -25,6 +28,10 @@ class Db(filePath: String){
     var obj: JSONObject = parser.parse(reader) as JSONObject
 
 
+    /**
+     * out_Functions retrives corresponding data from JSON file
+     * in_Funciotns writes corresponding data from JSON file
+     */
 
     private fun write(jObj: JSONObject){
 
@@ -38,12 +45,9 @@ class Db(filePath: String){
         ifEmpty()
     }
 
-
     fun outProgram(): JSONObject{
         return obj["program"] as JSONObject
     }
-
-
 
     fun outMan(): JSONArray{
         return obj["man"] as JSONArray
@@ -61,20 +65,14 @@ class Db(filePath: String){
         return outModule()[module] as JSONObject
     }
 
-
-
     fun outdt(module:String, activity:String): JSONArray{
         return outActivity(module)[activity] as JSONArray
     }
-
-
-
 
     fun inProgram(progName: String, module: JSONObject){
         outProgram()[progName]= module
         write(obj)
     }
-
 
     fun inModule(modName: String, module: JSONObject){
         outModule()[modName] = module
@@ -118,6 +116,10 @@ class Db(filePath: String){
         write(obj)
     }
 
+
+    /**
+     * Initialises the JSON file if JSON file is empty
+     */
     fun ifEmpty(){
 
         val obj : JSONObject = JSONObject()

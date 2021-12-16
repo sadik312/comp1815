@@ -3,11 +3,16 @@
 class KotlinClash(model1: Model, view2: ClashGui){
 
 
-    val model = model1
-    val view = view2
+    private val model = model1
+    private val view = view2
 
-    val input = HashMap<String, String>()
-    var clashModule = listOf<String>()
+    /**
+     * Input holds user input as a HashMap with key as the entry field and value as the entered value
+     * ClashModule list holds the Modules that can potentially clash due to User Entered Module being
+     * on same Program, Year, Term
+     */
+    private val input = HashMap<String, String>()
+    private var clashModule = listOf<String>()
 
    init{
        input["program"] = view.adProgramme
@@ -29,9 +34,9 @@ class KotlinClash(model1: Model, view2: ClashGui){
        }
    }
 
-
-
-
+    /**
+     * Method to add the current user entered module to database
+     */
     private fun add(){
         val activity = HashMap<String, List<String>>()
 
@@ -41,6 +46,10 @@ class KotlinClash(model1: Model, view2: ClashGui){
             input["module"].toString(), activity)
     }
 
+    /**
+     * Main clash detection function
+     * @return True for clash and False for NO CLASH
+     */
     private fun clash(): Boolean{
         //TRUE == CLASH
         //FALSE == NO CLASH
@@ -66,7 +75,10 @@ class KotlinClash(model1: Model, view2: ClashGui){
         return false
     }
 
-
+    /**
+     * Checks if days clash
+     * @return return Ture for clash and False for no clash
+      */
     private fun checkDay(activityDay: String, day: String): Boolean{
         var ret = false
         if(activityDay == day){
@@ -75,7 +87,10 @@ class KotlinClash(model1: Model, view2: ClashGui){
         return ret
     }
 
-
+    /**
+     * Checks clashing times
+     * @return True for clash and False for no Clash
+     */
     private fun checkStart(activityField: List<String>, day:String, stime: Int, etime:Int): Boolean{
         //return TRUE if CLASH
         // FALSE = NO CLASH

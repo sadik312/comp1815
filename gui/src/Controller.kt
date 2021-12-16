@@ -4,6 +4,9 @@ import java.awt.event.ActionListener
 
 class Controller{
 
+    /**
+     * Initialising the Model and ClashGUI object to start their respective operations
+     */
     private val model = Model()
     private val view = ClashGui()
 
@@ -17,7 +20,9 @@ class Controller{
         val view = view1
 
 
-
+        /**
+         * Function to handle request for either Kotlin or Scala
+         */
         override fun actionPerformed(e: ActionEvent?) {
             if(view.adCrash == "Kotlin"){
 
@@ -43,18 +48,8 @@ class Controller{
          * calls scalaClash from ClashGui as the ScalaClash was only able to be called from a java
          * file to check for Clashes
          */
-        fun getScalaCrash(model: Model, view: ClashGui) {
-                ClashGui.scalaClash(model, view)
-        }
-
-
-
-
-
+        fun getScalaCrash(model: Model, view: ClashGui) {ClashGui.scalaClash(model, view)}
     }
-
-
-
 }
 
 fun main(){

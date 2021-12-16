@@ -308,7 +308,7 @@
             </constraints>
             <properties>
               <horizontalAlignment value="0"/>
-              <text value="Module"/>
+              <text value="Module Code"/>
             </properties>
           </component>
           <component id="3c0b8" class="javax.swing.JLabel" binding="adCrashTitle">
@@ -329,7 +329,7 @@
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Module"/>
+              <text value="Module Code"/>
             </properties>
           </component>
           <component id="9c13e" class="javax.swing.JLabel" binding="timeStart">
@@ -356,15 +356,9 @@
               <gridbag weightx="0.0" weighty="0.0" ipadx="50"/>
             </constraints>
           </hspacer>
-          <vspacer id="b8daa">
-            <constraints>
-              <grid row="22" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0" ipady="10"/>
-            </constraints>
-          </vspacer>
           <component id="4d225" class="javax.swing.JLabel" binding="adAddLabel">
             <constraints>
-              <grid row="23" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="25" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0" ipadx="40" ipady="20"/>
             </constraints>
             <properties>
@@ -374,7 +368,7 @@
           </component>
           <component id="ebf44" class="javax.swing.JButton" binding="closeButton" default-binding="true">
             <constraints>
-              <grid row="25" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="27" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
@@ -385,10 +379,32 @@
           </component>
           <vspacer id="579c6">
             <constraints>
+              <grid row="26" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0" ipady="10"/>
+            </constraints>
+          </vspacer>
+          <component id="d226f" class="javax.swing.JButton" binding="adDelMod">
+            <constraints>
+              <grid row="23" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Delete Module"/>
+            </properties>
+          </component>
+          <vspacer id="44746">
+            <constraints>
               <grid row="24" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0" ipady="10"/>
             </constraints>
           </vspacer>
+          <component id="1d10a" class="javax.swing.JScrollBar" binding="scrollBar1" default-binding="true">
+            <constraints>
+              <grid row="22" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties/>
+          </component>
         </children>
       </grid>
     </children>

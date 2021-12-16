@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowListener;
 
 public class ClashGui {
     private JPanel topLayer;
@@ -32,10 +31,11 @@ public class ClashGui {
     private JLabel adModule;
     private JLabel adAddLabel;
     public JButton closeButton;
+    private JButton adDelMod;
+    private JScrollBar scrollBar1;
 
     private CardLayout cl = (CardLayout)(topLayer.getLayout());
 
-// epic
     public String getAdCrash(){
         return (String) adCrash.getSelectedItem();
     }
@@ -73,10 +73,6 @@ public class ClashGui {
         return (String) adEndTime1.getSelectedItem() + (String) adEndTime2.getSelectedItem();
     }
 
-
-
-
-
     public String getComRadioButton(){
 
         String radioText = "";
@@ -94,7 +90,6 @@ public class ClashGui {
         }
 
 
-
         return(radioText);
 
     }
@@ -103,7 +98,6 @@ public class ClashGui {
         adAddButton.addActionListener(listenForButton);
         adAddButton.setForeground(Color.GREEN);
     }
-
 
     public void showAddedLabel(){
         adAddLabel.setText("Module added");
@@ -118,8 +112,6 @@ public class ClashGui {
 
     }
 
-
-
     public ClashGui(){
 
         adAddLabel.setVisible(false);
@@ -129,8 +121,12 @@ public class ClashGui {
                 System.exit(0);
             }
         });
+
     }
 
+    /**
+     * Initialises JFrame and Starts GUI and its configuration
+     */
     public void start(){
 
         JFrame frame = new JFrame("Clash detection");
@@ -140,6 +136,14 @@ public class ClashGui {
         frame.setVisible(true);
     }
 
+    /**
+     * For ScalaClash, Configuration issues did not allow us to call ScalaClash.detect() function from
+     * any Kotlin files. However, it was successfully called from Java files
+     * Called by Controller class
+     *
+     * @param model Model passed from Controller
+     * @param view  ClashGui Instance passed from Controller
+     */
     public static void scalaClash(Model model, ClashGui view){
         ScalaClash.detect(model, view);
     }
