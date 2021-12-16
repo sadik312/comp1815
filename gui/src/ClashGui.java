@@ -36,7 +36,7 @@ public class ClashGui {
 
     private CardLayout cl = (CardLayout)(topLayer.getLayout());
 
-
+// epic
     public String getAdCrash(){
         return (String) adCrash.getSelectedItem();
     }
