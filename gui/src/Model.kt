@@ -23,6 +23,9 @@ class Model {
         val p = stringProg(prog, year, term)
 
         if(!db.outProgram().containsKey(p)){
+            //(db.outProgram()[p] as JSONArray).add(module)
+            (db.outProgram()[p] as JSONArray).add(module)
+        }else{
             (db.outProgram()[p] as JSONArray).add(module)
         }
 
@@ -38,7 +41,6 @@ class Model {
 
         val activities = JSONObject()
         for((k,v ) in activity){
-
             activities[k] = v
         }
 
@@ -106,7 +108,7 @@ class Model {
     }
 
     /**
-     * Gets program Array from the database as a List of strings
+     * Gets corresponding program Array from the database as a List of strings
      */
     fun getProg(type: String): List<String>{
         return db.outProgram()[type] as List<String>

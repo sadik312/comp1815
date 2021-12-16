@@ -15,7 +15,6 @@ object ScalaClash {
       add(model, view)
       view.showAddedLabel()
     }else{
-      println("Crashed")
       view.showClashedLabel()
     }
   }
@@ -58,6 +57,7 @@ object ScalaClash {
       val p = model.getActivity(x)
       for((y,z) <- p.asScala){
         if(checkStart(z.asScala.toSeq, input("day"), input("stime").toInt, input("etime").toInt)){
+          println(s"Clashed with $x")
           return true
         }
       }

@@ -13,6 +13,7 @@ fun main(args: Array<String>) {
     //ONLY RUN TO CLEAR THE FILE
     //WARNING
     //To clear the JSON file
+    println("Database Cleared")
     Db("db.json").clear()
 }
 
@@ -149,10 +150,12 @@ class Db(filePath: String){
         val activity : JSONObject = JSONObject()
         val lecture : JSONArray = JSONArray()
 
+
         obj["module"] = module
 
         val man = JSONArray()
         val opt = JSONArray()
+
 
         obj["man"] = man
         obj["opt"] = opt
