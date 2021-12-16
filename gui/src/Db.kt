@@ -29,8 +29,8 @@ class Db(filePath: String){
 
 
     /**
-     * out_Functions retrives corresponding data from JSON file
-     * in_Funciotns writes corresponding data from JSON file
+     * out_Functions retrieves corresponding data from JSON file
+     * in_Functions writes corresponding data from JSON file
      */
 
     private fun write(jObj: JSONObject){

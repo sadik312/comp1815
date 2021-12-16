@@ -31,7 +31,6 @@ public class ClashGui {
     private JLabel adModule;
     private JLabel adAddLabel;
     public JButton closeButton;
-    private JButton adDelMod;
     private JScrollBar scrollBar1;
 
     private CardLayout cl = (CardLayout)(topLayer.getLayout());
