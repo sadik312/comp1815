@@ -46,7 +46,7 @@ class Db(filePath: String){
         ifEmpty()
     }
 
-    fun outProgram(): JSONObject{
+    fun outProgramme(): JSONObject{
         return obj["program"] as JSONObject
     }
 
@@ -71,7 +71,7 @@ class Db(filePath: String){
     }
 
     fun inProgram(progName: String, module: JSONObject){
-        outProgram()[progName]= module
+        outProgramme()[progName]= module
         write(obj)
     }
 
@@ -87,7 +87,7 @@ class Db(filePath: String){
 
     fun checkProg(module: String): String {
         var ret = ""
-        for((k,v) in outProgram().iterator()){
+        for((k,v) in outProgramme().iterator()){
                 if((v as JSONArray).contains(module)){
                     ret = k as String
             }
@@ -113,7 +113,7 @@ class Db(filePath: String){
         val prog = checkProg(module)
 
         (obj[opt] as JSONArray).remove(module)
-        (outProgram()[prog] as JSONArray).remove(module)
+        (outProgramme()[prog] as JSONArray).remove(module)
         write(obj)
     }
 

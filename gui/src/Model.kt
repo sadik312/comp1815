@@ -27,10 +27,10 @@ class Model {
         val p = stringProg(prog, year, term)
 
         //Adding programme
-        if(!db.outProgram().containsKey(p)){
-            (db.outProgram()[p] as JSONArray).add(module)
+        if(!db.outProgramme().containsKey(p)){
+            (db.outProgramme()[p] as JSONArray).add(module)
         }else{
-            (db.outProgram()[p] as JSONArray).add(module)
+            (db.outProgramme()[p] as JSONArray).add(module)
         }
         //Adding optional/compulsory
         if(op == "opt"){
@@ -115,7 +115,7 @@ class Model {
      * Gets corresponding program Array from the database as a List of strings
      */
     fun getProg(type: String): List<String>{
-        return db.outProgram()[type] as List<String>
+        return db.outProgramme()[type] as List<String>
     }
 
     /**
